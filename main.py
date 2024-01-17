@@ -17,6 +17,10 @@ fox_rect = fox.get_rect(topleft=(100, 100))
 coin = pygame.image.load("coin.png")
 coin_rect = coin.get_rect(topleft=(200, 200))
 
+# Load the background image
+background = pygame.image.load("background.jpeg")
+background = pygame.transform.scale(background, (WIDTH, HEIGHT))
+
 async def main():
     global game_over  # Declare game_over as a global variable
 
@@ -31,11 +35,11 @@ async def main():
     pygame.mixer.music.play(-1)
 
     def draw(screen):  # Pass screen as a parameter
-        screen.fill((0, 255, 0))  # Use RGB values for the green color
+        screen.blit(background, (0, 0))  # Draw the background first
         screen.blit(fox, fox_rect)
         screen.blit(coin, coin_rect)
         screen.blit(pygame.font.SysFont(None, 30).render("Score: " + str(score), True, (0, 0, 0)), (10, 10))
-        
+
         if game_over:
             screen.fill((128, 0, 0))  # Use RGB values for the maroon color
             screen.blit(pygame.font.SysFont(None, 60).render("Score: " + str(score), True, (245, 222, 179)), (100, 100))
