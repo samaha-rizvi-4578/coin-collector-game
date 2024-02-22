@@ -57,13 +57,13 @@ async def main():
 
         keys = pygame.key.get_pressed()
         if keys[pygame.K_LEFT]:
-            fox_rect.x -= 4
+            fox_rect.x -= 8
         elif keys[pygame.K_RIGHT]:
-            fox_rect.x += 4
+            fox_rect.x += 8
         elif keys[pygame.K_UP]:
-            fox_rect.y -= 4
+            fox_rect.y -= 8
         elif keys[pygame.K_DOWN]:
-            fox_rect.y += 4
+            fox_rect.y += 8
 
         coin_collected = fox_rect.colliderect(coin_rect)
 
