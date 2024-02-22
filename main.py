@@ -45,8 +45,8 @@ async def main():
             screen.blit(pygame.font.SysFont(None, 60).render("Score: " + str(score), True, (245, 222, 179)), (100, 100))
 
     def place_coin():
-        coin_rect.x = randint(20, WIDTH - 20)
-        coin_rect.y = randint(20, HEIGHT - 20)
+        coin_rect.x = randint(22, WIDTH - 22)
+        coin_rect.y = randint(22, HEIGHT - 22)
 
     def time_up():
         global game_over  # Use global to modify the outer function's variable
@@ -68,7 +68,7 @@ async def main():
         coin_collected = fox_rect.colliderect(coin_rect)
 
         if coin_collected:
-            score += 10
+            score += 20
             place_coin()
 
     pygame.time.set_timer(pygame.USEREVENT, 15000)  # Set up a timer event every 15 seconds
